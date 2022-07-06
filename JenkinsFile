@@ -1,41 +1,36 @@
+properties([pipelineTriggers([githubPush()])])
+ 
 pipeline {
-    agent any
-
+    /* specify nodes for executing */
+    agent {
+        label 'github-ci'
+    }
+ 
     stages {
-        stage('Hello') {
+        /* checkout repo */
+        stage('Checkout SCM') {
             steps {
-                echo 'Hello World'
-                sh 'sleep 10'
+                checkout([
+                 $class: 'GitSCM',
+                 branches: [[name: 'master']],
+                 userRemoteConfigs: [[
+                    url: 'git@github.com:wshihadeh/rabbitmq_client.git',
+                    credentialsId: '',
+                 ]]
+                ])
             }
         }
-
-        stage('Parallel_stage') {
-            parallel {
-                stage(parallel_1) {
-                    steps {
-                        sh 'echo "Hello World"'
-                        sh 'sleep 10'
-                    }
-                }
-                stage(parallel_2) {
-                    steps {
-                        sh '''
-                        echo "Hello World"
-                        touch new.txt
-                        pwd
-                        ls
-                        sleep 15
-                        '''
-                    }
-                }
-            }
-        }
-
-        stage('Hello_Again_test') {
+         stage('Do the deployment') {
             steps {
-                echo 'Hello World'
-                sh 'sleep 10'
+                echo ">> Run deploy applications "
             }
         }
     }
+ 
+    /* Cleanup workspace */
+    post {
+       always {
+           deleteDir()
+       }
+   }
 }
