@@ -12,9 +12,9 @@ pipeline {
             steps {
                 checkout([
                  $class: 'GitSCM',
-                 branches: [[name: 'master']],
+                 branches: [[name: 'main']],
                  userRemoteConfigs: [[
-                    url: 'git@github.com:wshihadeh/rabbitmq_client.git',
+                    url: 'https://github.com/rtandon6342/training.git',
                     credentialsId: '',
                  ]]
                 ])
