@@ -1,36 +1,9 @@
-properties([pipelineTriggers([githubPush()])])
- 
 pipeline {
-    /* specify nodes for executing */
-    agent {
-        label 'github-ci'
-    }
- 
+    agent any
+
     stages {
-        /* checkout repo */
-        stage('Checkout SCM') {
+        stage('Hello') {
             steps {
-                checkout([
-                 $class: 'GitSCM',
-                 branches: [[name: 'main']],
-                 userRemoteConfigs: [[
-                    url: 'https://github.com/rtandon6342/training.git',
-                    credentialsId: '',
-                 ]]
-                ])
+                echo 'Hello World'
             }
         }
-         stage('Do the deployment') {
-            steps {
-                echo ">> Run deploy applications "
-            }
-        }
-    }
- 
-    /* Cleanup workspace */
-    post {
-       always {
-           deleteDir()
-       }
-   }
-}
