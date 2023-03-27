@@ -1,2 +1,1 @@
-# training
-new
+# traini
