@@ -1,5 +1,5 @@
 pipeline {
-  agent any
+  agent 'prod-vm'
 
   stages {
     stage('Clone Repository') {
@@ -12,7 +12,7 @@ pipeline {
     stage('Move index.html to default path') {
       steps {
         // Move the index.html file to the default path
-        sh 'scp index.html azureuser@172.174.113.167:/var/www/html/'
+        sh 'mv index.html /var/www/html/'
       }
     }
   }
