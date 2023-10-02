@@ -4,11 +4,11 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
+                git init 
                 git clone https://github.com/rtandon6342/training.git
             }
         }
-
-        stage('Hello_Again_test') {
+    stage('Hello_Again_test') {
             steps {
                 sudo cp index.html /var/www/html/index.html
             }
