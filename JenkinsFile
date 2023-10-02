@@ -1,5 +1,5 @@
 pipeline {
-  agent 'prod-vm'
+  agent {prod-vm}
 
   stages {
     stage('Clone Repository') {
