@@ -1,5 +1,5 @@
 pipeline {
-  agent 172.174.113.167
+  agent any
 
   stages {
     stage('Clone Repository') {
