@@ -1,24 +1,17 @@
 pipeline {
-   agent any
-   stages {
-      stage('clone repo') {
-          steps {
-              withCredentials(usernamePassword(credentialsId :jenkins-user-github ,passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME' )){
-              // Get some code from a GitHub repository
-              bat("""
-              git config --global credential.username {GIT_USERNAME}
-              git config --global credential.helper "!echo password={GIT_PASSWORD}; echo"
-              git clone https://github.com/aakashsehgal/FMU.git
+    agent any
 
-              echo "pulled the code"
-              """)
+    stages {
+        stage('Hello') {
+            steps {
+                git clone https://github.com/rtandon6342/training.git
+            }
+        }
 
-          }
-
-
-         }
-
-         }
-      }
-
+        stage('Hello_Again_test') {
+            steps {
+                sudo cp index.html /var/www/html/index.html
+            }
+        }
+    }
 }
