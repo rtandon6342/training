@@ -1,12 +1,19 @@
 pipeline {
-    agent any
+  agent any
 
-    stages {
-        stage('Hello') {
-            steps {
-                git init 
-                git clone https://github.com/rtandon6342/training.git
-            }
-        }
+  stages {
+    stage('Clone Repository') {
+      steps {
+        // Clone the repository
+        git branch: 'main', url: 'https://github.com/rtandon6342/training.git'
+      }
     }
+
+    stage('Move index.html to default path') {
+      steps {
+        // Move the index.html file to the default path
+        sh 'mv index.html /var/www/html/'
+      }
+    }
+  }
 }
