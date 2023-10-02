@@ -12,7 +12,7 @@ pipeline {
     stage('Move index.html to default path') {
       steps {
         // Move the index.html file to the default path
-        sh 'mv index.html /var/www/html/'
+        sh 'scp index.html azureuser@172.174.113.167:/var/www/html/'
       }
     }
   }
