@@ -2,7 +2,7 @@ agent {
   label 'win' // The label of the agent machine to run the pipeline on
 }
 
-stage {
+stages {
   stage('Clone Repository') {
     steps {
       git branch: 'main', url: 'https://github.com/rtandon6342/training.git'
