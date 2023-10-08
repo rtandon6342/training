@@ -11,7 +11,7 @@ stages {
 
   stage('Move index.html to default path') {
     steps {
-      bat 'move index.html C:\\inetpub\\wwwroot' // Copies the index.html file to the root of the C: drive
+      bat 'move index.html C:\\inetpub\\wwwroot\' // Copies the index.html file to the root of the C: drive
     }
   }
 
