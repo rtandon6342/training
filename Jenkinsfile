@@ -8,7 +8,7 @@ pipeline {
       }
     }
 
-    stage('Move index.html to default path') {
+    stage('Move index.html to windows web server') {
       agent {label 'agent-2'}
       steps {
         bat 'move index.html C:\\inetpub\\wwwroot' // Copies the index.html file to the root of the C: drive
@@ -22,7 +22,7 @@ pipeline {
       }
     }
 
-    stage('Move index.html to default path') {
+    stage('Move index.html to Ubunut web server') {
       agent {label 'agent'}
       steps {
         // Move the index.html file to the default path
