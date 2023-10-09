@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage('Clone Repository') {
+    stage('Clone in Windows') {
       agent {label 'agent-2'}
       steps {
         git branch: 'main', url: 'https://github.com/rtandon6342/training.git'
@@ -14,7 +14,7 @@ pipeline {
         bat 'move index.html C:\\inetpub\\wwwroot' // Copies the index.html file to the root of the C: drive
       }
     }
-    stage('Clone Repository') {
+    stage('Clone in Ubuntu') {
       agent {label 'agent'}
       steps {
         // Clone the repository
