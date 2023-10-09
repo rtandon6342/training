@@ -14,16 +14,5 @@ stages {
       bat 'move index.html C:\\inetpub\\wwwroot' // Copies the index.html file to the root of the C: drive
     }
   }
-
-  stage('Run application') {
-    steps {
-      // The steps to run your application go here
-    }
-  }
 }
-
-post {
-  always {
-    // Cleanup steps go here
-  }
-}
+ 
