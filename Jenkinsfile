@@ -1,6 +1,6 @@
 pipeline {
   agent {
-    label 'agent-1' // The label of the agent machine to run the pipeline on
+    label 'agent-2' // The label of the agent machine to run the pipeline on
   }
 
   stages {
