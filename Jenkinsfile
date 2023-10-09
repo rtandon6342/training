@@ -29,11 +29,5 @@ pipeline {
         sh 'sudo mv index.html /var/www/html/'
       }
     }
-    stage('Deploy') {
-      agent any
-      steps {
-        // Deploy steps that will run on both Windows and Ubuntu agents
-      }
-    }
   }
 }
